@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="product_floor_cleaner" model="product.template">
+        <field name="name">Floor Cleaner 2L</field>
+        <field name="default_code">CLN-FL2L</field>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="categ_id" ref="stockflow_core.categ_cleaning_supplies"/>
+        <field name="list_price">28.0</field>
+        <field name="standard_price">19.0</field>
+    </record>
+    <record id="product_dish_soap" model="product.template">
+        <field name="name">Dish Soap 1L</field>
+        <field name="default_code">CLN-DS1L</field>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="categ_id" ref="stockflow_core.categ_cleaning_supplies"/>
+        <field name="list_price">16.0</field>
+        <field name="standard_price">10.5</field>
+    </record>
+    <record id="product_glass_cleaner" model="product.template">
+        <field name="name">Glass Cleaner 500ml</field>
+        <field name="default_code">CLN-GL500</field>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="categ_id" ref="stockflow_core.categ_cleaning_supplies"/>
+        <field name="list_price">21.0</field>
+        <field name="standard_price">13.0</field>
+    </record>
+    <record id="product_broom" model="product.template">
+        <field name="name">Broom</field>
+        <field name="default_code">HH-BRM01</field>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="categ_id" ref="stockflow_core.categ_household_goods"/>
+        <field name="list_price">18.0</field>
+        <field name="standard_price">11.0</field>
+    </record>
+    <record id="product_mop" model="product.template">
+        <field name="name">Mop Set</field>
+        <field name="default_code">HH-MOP01</field>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="categ_id" ref="stockflow_core.categ_household_goods"/>
+        <field name="list_price">45.0</field>
+        <field name="standard_price">30.0</field>
+    </record>
+    <record id="product_trash_bag" model="product.template">
+        <field name="name">Trash Bag Roll</field>
+        <field name="default_code">HH-TRB01</field>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="categ_id" ref="stockflow_core.categ_household_goods"/>
+        <field name="list_price">12.0</field>
+        <field name="standard_price">7.0</field>
+    </record>
+    <record id="product_tissue" model="product.template">
+        <field name="name">Facial Tissue 250s</field>
+        <field name="default_code">PT-TIS250</field>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="categ_id" ref="stockflow_core.categ_paper_tissue"/>
+        <field name="list_price">14.0</field>
+        <field name="standard_price">9.0</field>
+    </record>
+    <record id="product_toilet_paper" model="product.template">
+        <field name="name">Toilet Paper 10 Rolls</field>
+        <field name="default_code">PT-TPL10</field>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="categ_id" ref="stockflow_core.categ_paper_tissue"/>
+        <field name="list_price">38.0</field>
+        <field name="standard_price">26.0</field>
+    </record>
+    <record id="product_food_container" model="product.template">
+        <field name="name">Food Container Set</field>
+        <field name="default_code">KD-FCS01</field>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="categ_id" ref="stockflow_core.categ_kitchen_dining"/>
+        <field name="list_price">32.0</field>
+        <field name="standard_price">21.0</field>
+    </record>
+    <record id="product_dish_rack" model="product.template">
+        <field name="name">Dish Rack</field>
+        <field name="default_code">KD-DRK01</field>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="categ_id" ref="stockflow_core.categ_kitchen_dining"/>
+        <field name="list_price">55.0</field>
+        <field name="standard_price">37.0</field>
+    </record>
+    <record id="product_hand_soap" model="product.template">
+        <field name="name">Hand Soap 500ml</field>
+        <field name="default_code">PC-HS500</field>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="categ_id" ref="stockflow_core.categ_personal_care"/>
+        <field name="list_price">19.0</field>
+        <field name="standard_price">12.0</field>
+    </record>
+    <record id="product_shampoo" model="product.template">
+        <field name="name">Shampoo 340ml</field>
+        <field name="default_code">PC-SHP340</field>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="categ_id" ref="stockflow_core.categ_personal_care"/>
+        <field name="list_price">42.0</field>
+        <field name="standard_price">29.0</field>
+    </record>
+</odoo>

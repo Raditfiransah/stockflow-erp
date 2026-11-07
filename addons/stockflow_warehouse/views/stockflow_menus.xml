@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="menu_stockflow_move_ledger"
+        name="Stock Movement Ledger"
+        parent="stock.menu_warehouse_report"
+        action="action_stockflow_move_ledger"
+        sequence="10"
+        groups="stock.group_stock_manager"
+    />
+</odoo>

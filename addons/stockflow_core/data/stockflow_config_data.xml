@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="param_block_negative_stock" model="ir.config_parameter">
+        <field name="key">stockflow.block_negative_stock</field>
+        <field name="value">1</field>
+    </record>
+    <record id="param_require_po_for_receipt" model="ir.config_parameter">
+        <field name="key">stockflow.require_po_for_receipt</field>
+        <field name="value">1</field>
+    </record>
+    <record id="param_require_so_for_delivery" model="ir.config_parameter">
+        <field name="key">stockflow.require_so_for_delivery</field>
+        <field name="value">1</field>
+    </record>
+    <record id="param_require_internal_transfer_approval" model="ir.config_parameter">
+        <field name="key">stockflow.require_internal_transfer_approval</field>
+        <field name="value">1</field>
+    </record>
+</odoo>

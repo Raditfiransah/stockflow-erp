@@ -1,0 +1,60 @@
+services:
+  db:
+    image: postgres:16
+    container_name: stockflow-db
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: ${POSTGRES_USER:-odoo}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-odoo}
+    volumes:
+      - stockflow-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-odoo} -d postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  odoo:
+    image: odoo:20.0
+    container_name: stockflow-odoo
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${ODOO_PORT:-8070}:8069"
+      - "${ODOO_LONGPOLLING_PORT:-8072}:8072"
+    environment:
+      HOST: db
+      PORT: 5432
+      USER: ${POSTGRES_USER:-odoo}
+      PASSWORD: ${POSTGRES_PASSWORD:-odoo}
+      ODOO_MASTER_PASSWORD: ${ODOO_MASTER_PASSWORD:-admin}
+    volumes:
+      - ./config/odoo.conf.template:/etc/odoo/odoo.conf.template:ro
+      - ./addons:/mnt/extra-addons
+      - stockflow-odoo-data:/var/lib/odoo
+    # Odoo rewrites /etc/odoo/odoo.conf when the master password changes, so the
+    # template is rendered into the writable layer only when the file carries no
+    # admin_passwd yet. That keeps UI changes across restarts and lets .env seed
+    # a freshly created container.
+    command:
+      - /bin/bash
+      - -c
+      - |
+        set -e
+        grep -qE '^[[:space:]]*admin_passwd[[:space:]]*=' /etc/odoo/odoo.conf || python3 - <<'PY'
+        import os
+        template = "/etc/odoo/odoo.conf.template"
+        target = "/etc/odoo/odoo.conf"
+        with open(template, encoding="utf-8") as src:
+            content = src.read()
+        with open(target, "w", encoding="utf-8") as dst:
+            dst.write(content.replace("@ODOO_MASTER_PASSWORD@", os.environ.get("ODOO_MASTER_PASSWORD", "admin")))
+        PY
+        exec odoo
+    restart: unless-stopped
+
+volumes:
+  stockflow-db-data:
+  stockflow-odoo-data:

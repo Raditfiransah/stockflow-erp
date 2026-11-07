@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="categ_household_goods" model="product.category">
+        <field name="name">Household Goods</field>
+    </record>
+    <record id="categ_cleaning_supplies" model="product.category">
+        <field name="name">Cleaning Supplies</field>
+    </record>
+    <record id="categ_paper_tissue" model="product.category">
+        <field name="name">Paper &amp; Tissue</field>
+    </record>
+    <record id="categ_kitchen_dining" model="product.category">
+        <field name="name">Kitchen &amp; Dining</field>
+    </record>
+    <record id="categ_personal_care" model="product.category">
+        <field name="name">Personal Care</field>
+    </record>
+</odoo>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stockflow_move_ledger_tree" model="ir.ui.view">
+        <field name="name">stockflow.stock.move.ledger.tree</field>
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml">
+            <list string="Stock Movements" create="0" edit="0" delete="0">
+                <field name="date"/>
+                <field name="reference"/>
+                <field name="stockflow_movement_type"/>
+                <field name="product_id"/>
+                <field name="product_uom_qty" string="Demand"/>
+                <field name="quantity" string="Done"/>
+                <field name="uom_id" string="Unit"/>
+                <field name="location_id"/>
+                <field name="location_dest_id"/>
+                <field name="partner_id" optional="hide"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_stockflow_move_ledger_pivot" model="ir.ui.view">
+        <field name="name">stockflow.stock.move.ledger.pivot</field>
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml">
+            <pivot string="Stock Movements">
+                <field name="stockflow_movement_type" type="row"/>
+                <field name="product_id" type="row"/>
+                <field name="quantity" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_stockflow_move_ledger_graph" model="ir.ui.view">
+        <field name="name">stockflow.stock.move.ledger.graph</field>
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml">
+            <graph string="Stock Movements" type="bar">
+                <field name="stockflow_movement_type"/>
+                <field name="quantity" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_stockflow_move_ledger_search" model="ir.ui.view">
+        <field name="name">stockflow.stock.move.ledger.search</field>
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml">
+            <search string="Stock Movements">
+                <field name="product_id"/>
+                <field name="reference"/>
+                <field name="partner_id"/>
+                <filter string="Done" name="done" domain="[('state', '=', 'done')]"/>
+                <separator/>
+                <filter string="Receipts" name="type_receipt" domain="[('stockflow_movement_type', '=', 'receipt')]"/>
+                <filter string="Deliveries" name="type_delivery" domain="[('stockflow_movement_type', '=', 'delivery')]"/>
+                <filter string="Internal" name="type_internal" domain="[('stockflow_movement_type', '=', 'internal')]"/>
+                <filter string="Adjustments" name="type_adjustment" domain="[('stockflow_movement_type', '=', 'adjustment')]"/>
+                <filter string="Returns" name="type_return" domain="[('stockflow_movement_type', '=', 'return')]"/>
+                <group>
+                    <filter string="Movement Type" name="group_type" context="{'group_by': 'stockflow_movement_type'}"/>
+                    <filter string="Product" name="group_product" context="{'group_by': 'product_id'}"/>
+                    <filter string="Source Location" name="group_location" context="{'group_by': 'location_id'}"/>
+                    <filter string="Destination Location" name="group_location_dest" context="{'group_by': 'location_dest_id'}"/>
+                    <filter string="Date" name="group_date" context="{'group_by': 'date:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_stockflow_move_ledger" model="ir.actions.act_window">
+        <field name="name">Stock Movement Ledger</field>
+        <field name="res_model">stock.move</field>
+        <field name="view_mode">list,pivot,graph,form</field>
+        <field name="domain">[('state', '=', 'done')]</field>
+        <field name="search_view_id" ref="view_stockflow_move_ledger_search"/>
+        <field name="context">{'search_default_done': 1}</field>
+    </record>
+</odoo>

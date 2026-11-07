@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_inventory_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="data" t-value="o.get_report_data()"/>
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Inventory Report</h2>
+                        <p><strong>As of:</strong> <span t-out="data['date_to']"/></p>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>SKU</th>
+                                    <th>Product</th>
+                                    <th>Category</th>
+                                    <th>Location</th>
+                                    <th class="text-end">On Hand</th>
+                                    <th class="text-end">Reserved</th>
+                                    <th class="text-end">Available</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="data['lines']" t-as="line">
+                                    <td><span t-out="line['sku']"/></td>
+                                    <td><span t-out="line['product']"/></td>
+                                    <td><span t-out="line['category']"/></td>
+                                    <td><span t-out="line['location']"/></td>
+                                    <td class="text-end"><span t-out="line['quantity']"/></td>
+                                    <td class="text-end"><span t-out="line['reserved']"/></td>
+                                    <td class="text-end"><span t-out="line['available']"/></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4"><strong>Total on hand</strong></td>
+                                    <td class="text-end"><strong><span t-out="data['total_quantity']"/></strong></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <p t-if="not data['lines']">No stock matches the selected filters.</p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_sales_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="data" t-value="o.get_report_data()"/>
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Sales Report</h2>
+                        <p>
+                            <strong>Period:</strong>
+                            <span t-out="data['date_from']"/> to <span t-out="data['date_to']"/>
+                        </p>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th t-out="data['group_label']"/>
+                                    <th class="text-end">Quantity</th>
+                                    <th class="text-end">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="data['lines']" t-as="line">
+                                    <td><span t-out="line['label']"/></td>
+                                    <td class="text-end"><span t-out="line['quantity']"/></td>
+                                    <td class="text-end">
+                                        <span t-out="line['amount']" t-options="{'widget': 'monetary', 'display_currency': data['currency']}"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td><strong>Total</strong></td>
+                                    <td class="text-end"><strong><span t-out="data['total_quantity']"/></strong></td>
+                                    <td class="text-end">
+                                        <strong>
+                                            <span t-out="data['total_amount']" t-options="{'widget': 'monetary', 'display_currency': data['currency']}"/>
+                                        </strong>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <p t-if="not data['lines']">No sales match the selected filters.</p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_purchase_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="data" t-value="o.get_report_data()"/>
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Purchasing Report</h2>
+                        <p>
+                            <strong>Period:</strong>
+                            <span t-out="data['date_from']"/> to <span t-out="data['date_to']"/>
+                        </p>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th t-out="data['group_label']"/>
+                                    <th class="text-end">Quantity</th>
+                                    <th class="text-end">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="data['lines']" t-as="line">
+                                    <td><span t-out="line['label']"/></td>
+                                    <td class="text-end"><span t-out="line['quantity']"/></td>
+                                    <td class="text-end">
+                                        <span t-out="line['amount']" t-options="{'widget': 'monetary', 'display_currency': data['currency']}"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td><strong>Total</strong></td>
+                                    <td class="text-end"><strong><span t-out="data['total_quantity']"/></strong></td>
+                                    <td class="text-end">
+                                        <strong>
+                                            <span t-out="data['total_amount']" t-options="{'widget': 'monetary', 'display_currency': data['currency']}"/>
+                                        </strong>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <p t-if="not data['lines']">No purchases match the selected filters.</p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

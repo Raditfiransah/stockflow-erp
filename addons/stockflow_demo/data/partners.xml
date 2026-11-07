@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="partner_supplier_nusantara" model="res.partner">
+        <field name="name">PT Nusantara Hygiene</field>
+        <field name="is_company" eval="True"/>
+        <field name="supplier_rank">1</field>
+        <field name="stockflow_code">SUP-001</field>
+    </record>
+    <record id="partner_supplier_makmur" model="res.partner">
+        <field name="name">PT Makmur Bersih Sejahtera</field>
+        <field name="is_company" eval="True"/>
+        <field name="supplier_rank">1</field>
+        <field name="stockflow_code">SUP-002</field>
+    </record>
+    <record id="partner_supplier_sinar" model="res.partner">
+        <field name="name">CV Sinar Paperindo</field>
+        <field name="is_company" eval="True"/>
+        <field name="supplier_rank">1</field>
+        <field name="stockflow_code">SUP-003</field>
+    </record>
+    <record id="partner_supplier_dapur" model="res.partner">
+        <field name="name">PT Dapur Prima Plastik</field>
+        <field name="is_company" eval="True"/>
+        <field name="supplier_rank">1</field>
+        <field name="stockflow_code">SUP-004</field>
+    </record>
+    <record id="partner_supplier_care" model="res.partner">
+        <field name="name">PT Care Personal Indonesia</field>
+        <field name="is_company" eval="True"/>
+        <field name="supplier_rank">1</field>
+        <field name="stockflow_code">SUP-005</field>
+    </record>
+
+    <record id="partner_customer_rejeki" model="res.partner">
+        <field name="name">Toko Sumber Rejeki</field>
+        <field name="is_company" eval="True"/>
+        <field name="customer_rank">1</field>
+        <field name="stockflow_code">CUS-001</field>
+    </record>
+    <record id="partner_customer_maju" model="res.partner">
+        <field name="name">Toko Maju Jaya</field>
+        <field name="is_company" eval="True"/>
+        <field name="customer_rank">1</field>
+        <field name="stockflow_code">CUS-002</field>
+    </record>
+    <record id="partner_customer_sejahtera" model="res.partner">
+        <field name="name">UD Sejahtera Abadi</field>
+        <field name="is_company" eval="True"/>
+        <field name="customer_rank">1</field>
+        <field name="stockflow_code">CUS-003</field>
+    </record>
+    <record id="partner_customer_bersama" model="res.partner">
+        <field name="name">CV Bersama Retail</field>
+        <field name="is_company" eval="True"/>
+        <field name="customer_rank">1</field>
+        <field name="stockflow_code">CUS-004</field>
+    </record>
+    <record id="partner_customer_grosir" model="res.partner">
+        <field name="name">Grosir Keluarga Mandiri</field>
+        <field name="is_company" eval="True"/>
+        <field name="customer_rank">1</field>
+        <field name="stockflow_code">CUS-005</field>
+    </record>
+</odoo>

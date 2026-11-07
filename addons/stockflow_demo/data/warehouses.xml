@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="wh_medan" model="stock.warehouse">
+        <field name="name">North Warehouse</field>
+        <field name="code">NWH</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="wh_surabaya" model="stock.warehouse">
+        <field name="name">South Warehouse</field>
+        <field name="code">SWH</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_stockflow" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.stockflow</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="60"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="StockFlow" string="StockFlow" name="stockflow" groups="base.group_system">
+                    <block title="Business Rules" name="stockflow_rules">
+                        <setting id="stockflow_block_negative_stock" help="Prevent internal locations from holding a negative quantity.">
+                            <field name="stockflow_block_negative_stock"/>
+                        </setting>
+                        <setting id="stockflow_require_po_for_receipt" help="Receipts must reference a confirmed purchase order.">
+                            <field name="stockflow_require_po_for_receipt"/>
+                        </setting>
+                        <setting id="stockflow_require_so_for_delivery" help="Deliveries must reference a confirmed sales order.">
+                            <field name="stockflow_require_so_for_delivery"/>
+                        </setting>
+                        <setting id="stockflow_require_internal_transfer_approval" help="Internal transfers need approval before validation.">
+                            <field name="stockflow_require_internal_transfer_approval"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

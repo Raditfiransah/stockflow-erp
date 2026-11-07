@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_inventory" model="ir.actions.report">
+        <field name="name">Inventory Report</field>
+        <field name="model">stockflow.inventory.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stockflow_reports.report_inventory_document</field>
+        <field name="print_report_name">'StockFlow Inventory Report'</field>
+    </record>
+
+    <record id="action_report_sales" model="ir.actions.report">
+        <field name="name">Sales Report</field>
+        <field name="model">stockflow.sales.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stockflow_reports.report_sales_document</field>
+        <field name="print_report_name">'StockFlow Sales Report'</field>
+    </record>
+
+    <record id="action_report_purchase" model="ir.actions.report">
+        <field name="name">Purchasing Report</field>
+        <field name="model">stockflow.purchase.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stockflow_reports.report_purchase_document</field>
+        <field name="print_report_name">'StockFlow Purchasing Report'</field>
+    </record>
+</odoo>

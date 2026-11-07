@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="menu_stockflow_reports"
+        name="StockFlow Reports"
+        parent="stock.menu_warehouse_report"
+        sequence="90"
+        groups="stock.group_stock_manager"
+    />
+    <menuitem
+        id="menu_stockflow_inventory_report"
+        name="Inventory Report"
+        parent="menu_stockflow_reports"
+        action="action_stockflow_inventory_report"
+        sequence="10"
+    />
+    <menuitem
+        id="menu_stockflow_sales_report"
+        name="Sales Report"
+        parent="menu_stockflow_reports"
+        action="action_stockflow_sales_report"
+        sequence="20"
+    />
+    <menuitem
+        id="menu_stockflow_purchase_report"
+        name="Purchasing Report"
+        parent="menu_stockflow_reports"
+        action="action_stockflow_purchase_report"
+        sequence="30"
+    />
+</odoo>

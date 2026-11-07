@@ -1,0 +1,9 @@
+.env
+*.pyc
+__pycache__/
+*.pyo
+.odoo/
+backups/
+*.log
+.DS_Store
+Thumbs.db

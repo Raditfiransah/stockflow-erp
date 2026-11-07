@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="access_stockflow_inventory_report" model="ir.access">
+        <field name="name">stockflow.inventory.report.user</field>
+        <field name="model_id" ref="model_stockflow_inventory_report"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="operation">crud</field>
+    </record>
+    <record id="access_stockflow_sales_report" model="ir.access">
+        <field name="name">stockflow.sales.report.user</field>
+        <field name="model_id" ref="model_stockflow_sales_report"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="operation">crud</field>
+    </record>
+    <record id="access_stockflow_purchase_report" model="ir.access">
+        <field name="name">stockflow.purchase.report.user</field>
+        <field name="model_id" ref="model_stockflow_purchase_report"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="operation">crud</field>
+    </record>
+</odoo>
